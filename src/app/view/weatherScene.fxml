@@ -9,16 +9,51 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="430.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.WeatherSceneController">
    <children>
-      <SplitPane dividerPositions="0.4392523364485981" prefHeight="287.0" prefWidth="373.0" styleClass="background" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.4252336448598131" prefHeight="287.0" prefWidth="373.0" styleClass="background" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="205.0">
                <children>
+                  <GridPane layoutX="220.0" layoutY="15.0" prefHeight="97.0" prefWidth="188.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="83.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="87.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="87.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="31.0" minHeight="0.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="dayOneIcon" fitHeight="40.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="http://openweathermap.org/img/w/10d.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="dayTwoIcon" fitHeight="40.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="http://openweathermap.org/img/w/10d.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="dayThreeIcon" fitHeight="40.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="http://openweathermap.org/img/w/10d.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="dayOneName" styleClass="item-title" text="Day1" />
+                        <Label fx:id="day2name" styleClass="item-title" text="Day2" GridPane.columnIndex="1" />
+                        <Label fx:id="day3name" styleClass="item-title" text="Day3" GridPane.columnIndex="2" />
+                        <Label fx:id="dayOneTemp" styleClass="item-title" text="Tmp1" GridPane.rowIndex="2" />
+                        <Label fx:id="dayTwoTemp" styleClass="item-title" text="Tmp2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="dayThreeTemp" styleClass="item-title" text="Tmp3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
                   <ImageView fx:id="icon" fitHeight="65.0" fitWidth="40.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="131.8860740661621" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="17.0">
                      <image>
                         <Image url="http://openweathermap.org/img/w/10d.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="58.0" layoutY="10.0" prefHeight="80.0" prefWidth="116.0" spacing="5.0" AnchorPane.rightAnchor="1.0">
+                  <VBox layoutX="66.0" layoutY="12.0" prefHeight="80.0" prefWidth="116.0" spacing="5.0">
                      <children>
                         <Label fx:id="curentTemp" prefHeight="52.0" prefWidth="126.0" styleClass="temperature" text="17.96 C" />
                         <Label fx:id="weatherMain" styleClass="main" text="Rain" />

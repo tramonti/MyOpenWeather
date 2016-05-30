@@ -1,5 +1,6 @@
 package app.test;
 
+import app.util.MyDate;
 import com.google.gson.Gson;
 import util.data.city.City;
 import util.net.FetchURLData;
@@ -9,7 +10,9 @@ import java.io.*;
 import java.net.ConnectException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 /**
@@ -18,53 +21,25 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws IOException {
 
-        Thread t = new Thread(new Runnable() {
-//            WeatherParser wp = new WeatherParser();
-
-            @Override
-            public void run() {
-
-                    while (true) {
-//                        System.out.println("I am a virus!");
-
-                    }
+        LocalTime afternoon = LocalTime.NOON;
+        LocalDate today = LocalDate.now();
+        LocalDateTime todayNoon = LocalDateTime.of(today, afternoon);
+        LocalDateTime tomorrowNoon = todayNoon.plusDays(1);
 
 
+        System.out.printf("noon: %s\ntoday: %s\ntoday noon: %s\ntomorrow noon %s, day is: %s\n",afternoon,today,todayNoon, tomorrowNoon, tomorrowNoon.getDayOfWeek());
+        System.out.println(LocalDateTime.now());
+        System.out.println(MyDate.getDayAfterTomorrowNoon());
 
-            }
+        WeatherParser weatherParser = new WeatherParser();
+        LocalDateTime time = LocalDateTime.now();
+        City cityModel = null;
+        cityModel = weatherParser.getCityObject(703448);
+        //System.out.println(cityModel);
+        System.out.println(MyDate.getTomorrowNoon().getHour());
 
-        });
-
-        long startTime = System.currentTimeMillis();
-        t.start();
-//        System.out.println("interrupted: " + t.isInterrupted());
-
-        try {
-            while (t.isAlive()) {
-                System.out.println(System.currentTimeMillis() - startTime);
-                if (System.currentTimeMillis() - startTime > 1000) {
-
-                    t.stop();
-
-                    t = null;
-//
-                    System.out.println("Stopped!");
-                }
-            }
-        } catch (NullPointerException ex) {
-            System.out.println("I am null");
-        }
-//        try {
-//            System.out.println("try sleep");
-//            t.interrupt();
-//            t.sleep(10000);
-//
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        System.out.println("Thread is dead");
-
-
+        System.out.println(cityModel.getConditionByTime(MyDate.getDayAfterTomorrowNoon()));
+//        System.out.println(MyDate.getDayOfWeekString(MyDate.getSecondDayAfterTomorrow()));
     }
 
 }
