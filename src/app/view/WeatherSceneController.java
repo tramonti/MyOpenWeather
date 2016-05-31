@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -116,18 +117,22 @@ public class WeatherSceneController {
 
     @FXML
     private void initialize() {
+        System.out.println(Thread.currentThread().getName());
         Thread initThread = new Thread(new Runnable() {
+
 
             @Override
             public void run() {
-
+                System.out.println(Thread.currentThread().getName());
                 try {
                     // System.out.println("trying to show weather data");
 //                    Thread.sleep(10000);
                     showWeatherDetails(getCityIdFromMyFile());
                 } catch (UnknownHostException e) {
-                    // System.out.println("printing default from try");
+                    System.out.println("in unknown host");
                     setDefault();
+                }catch (IOException io){
+                    System.out.println("I am here in IO");
                 }
 
 
@@ -135,8 +140,9 @@ public class WeatherSceneController {
 
         });
         long startTime = System.currentTimeMillis();
-
+        initThread.setName("Init Thread");
         initThread.start();
+
         try {
             while (initThread.isAlive()) {
                 //System.out.println("I am waiting");
@@ -152,6 +158,7 @@ public class WeatherSceneController {
         } catch (NullPointerException ex) {
             setDefault();
         }
+        //System.out.println(initThread.isAlive());
 
 
         // 686896 = Zolochiv
@@ -166,7 +173,9 @@ public class WeatherSceneController {
         LocalDateTime time = LocalDateTime.now();
         City cityModel = null;
         try {
+
             cityModel = weatherParser.getCityObject(cityID);
+
             this.city = cityModel;
             ArrayList<Condition> conditions = cityModel.getConditionsByDate(time);
             Condition mainConditon = conditions.get(0);
@@ -227,6 +236,9 @@ public class WeatherSceneController {
             setDefault();
 //
 //            e.printStackTrace();
+        }catch (SocketException se){
+            System.out.println("I am here");
+           setDefault();
         }
 
 
@@ -235,34 +247,54 @@ public class WeatherSceneController {
     @FXML
     private void updateHandle() {
 
+        try {
+            showWeatherDetails(getCityIdFromMyFile());
+        } catch (UnknownHostException e) {
+            setDefault();
+        }
+
+/*
+        System.out.println(Thread.currentThread().getName());
         Thread update = new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println(Thread.currentThread().getName());
                 try {
+                   // System.out.println(Thread.currentThread().isAlive());
                     showWeatherDetails(getCityIdFromMyFile());
                 } catch (UnknownHostException e) {
                     setDefault();
+                } catch (IllegalThreadStateException ilt){
+
                 }
             }
         });
         long startTime = System.currentTimeMillis();
 
+        update.setName("Update Thread");
         update.start();
         try {
             while (update.isAlive()) {
                 // System.out.println("I am waiting");
                 // System.out.println(System.currentTimeMillis() - startTime);
-                if (System.currentTimeMillis() - startTime > 1500) {
+                if (System.currentTimeMillis() - startTime > 3000) {
                     // System.out.println("I am in if interrupt");
                     // killing thread
                     update.stop();
                     update = null;
+
                 }
             }
 
         } catch (NullPointerException ex) {
+            System.out.println(Thread.currentThread().getName());
+           // System.out.println(update.isAlive());
             setDefault();
+            //System.out.println("aaaaaa");
+            //Thread.dumpStack();
         }
+      // System.out.println(update.isAlive());
+        System.out.println(Thread.currentThread().getName());*/
     }
 
     @FXML

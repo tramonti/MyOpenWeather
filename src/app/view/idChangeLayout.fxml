@@ -19,6 +19,5 @@
             <Insets left="16.0" top="9.0" />
          </padding>
       </HBox>
-      <Hyperlink layoutX="145.0" layoutY="5.0" styleClass="hyper-link" text="id list" />
    </children>
 </AnchorPane>
