@@ -11,9 +11,9 @@ Screenshot how to changecity Id (Right click on City Name):</br>
 
 Links to <strong>download</strong>:
 <ul>
-  <li><a href=https://www.dropbox.com/s/s0y30qz8tqbhs56/myopenweather-1.0-amd64.deb?dl=0>myopenweather-1.0 for Linux 64-bit</a></li>
-  <li><a href="https://www.dropbox.com/s/ul6lw1c7om2e52n/myopenweather-2.0x64.deb?dl=0">myopenweather-2.0 for Linux 64-bit</a></li>
-  <li><a href="https://www.dropbox.com/s/d963nqpibz3vq95/myopenweather-2.0-i386.deb?dl=0">myopenweather-2.0 for Linux 32-bit</a></li>
+  <li><a href=https://www.dropbox.com/s/s0y30qz8tqbhs56/myopenweather-1.0-amd64.deb?dl=0 target="_blank">myopenweather-1.0 for Linux 64-bit</a></li>
+  <li><a href="https://www.dropbox.com/s/ul6lw1c7om2e52n/myopenweather-2.0x64.deb?dl=0" target="_blank">myopenweather-2.0 for Linux 64-bit</a></li>
+  <li><a href="https://www.dropbox.com/s/d963nqpibz3vq95/myopenweather-2.0-i386.deb?dl=0" target="_blank">myopenweather-2.0 for Linux 32-bit</a></li>
 </ul>
 
 
