@@ -15,7 +15,7 @@ Links to <strong>download</strong>:
   <li><a href="https://www.dropbox.com/s/ul6lw1c7om2e52n/myopenweather-2.0x64.deb?dl=0" target="_blank">myopenweather-2.0 for Linux 64-bit</a></li>
   <li><a href="https://www.dropbox.com/s/utdpsu4fkw8obgd/myopenweather-2.0-32bit.deb?dl=0" target="_blank">myopenweather-2.0 for Linux 32-bit</a></li>
 </ul>
-If you are using ubuntu 32-bit, don't forget ti install libgtk-3-dev for javafx configuration:
+If you are using ubuntu 32-bit, don't forget to install libgtk-3-dev for javafx configuration:
 <p><em>sudo apt-get install libgtk-3-dev</em></p>
 
 
