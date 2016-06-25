@@ -1,4 +1,5 @@
 *.iml
 *.properties
 myopenweather.xml
+.idea
 
