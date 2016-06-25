@@ -235,6 +235,8 @@
     </fx:jar>
     <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.MyOpenWeather}/deploy" outfile="MyOpenWeather" nativeBundles="deb">
       <fx:application refid="MyOpenWeather_id"/>
+      <fx:platform basedir="${java.home}"/>
+      <fx:platform basedir="/home/olesia/Java/jdk1.8.0_linux-i586/jre"/>
       <fx:info title="My Open Weather" vendor="olesia.serban.com" description="It is created for Ubuntu x64
 App uses info from Open Weather Map"/>
       <fx:resources>
