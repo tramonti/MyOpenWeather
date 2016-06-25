@@ -90,6 +90,9 @@
   <property name="project.jdk.home" value="${jdk.home.1.8}"/>
   <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
   <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Application Server Libraries -->
   <!-- Register Custom Compiler Taskdefs -->
   <property name="javac2.home" value="${idea.home}/lib"/>
   <path id="javac2.classpath">
@@ -126,27 +129,27 @@
   
   <path id="myopenweather.module.production.classpath">
     <path refid="${module.jdk.classpath.myopenweather}"/>
-    <pathelement location="${basedir}/../../Java/OWM-JSON-helper-1.1-SNAPSHOT-x86.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
     <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
   </path>
   
   <path id="myopenweather.runtime.production.module.classpath">
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../../Java/OWM-JSON-helper-1.1-SNAPSHOT-x86.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
     <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
   </path>
   
   <path id="myopenweather.module.classpath">
     <path refid="${module.jdk.classpath.myopenweather}"/>
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../../Java/OWM-JSON-helper-1.1-SNAPSHOT-x86.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
     <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
   </path>
   
   <path id="myopenweather.runtime.module.classpath">
     <pathelement location="${myopenweather.testoutput.dir}"/>
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../../Java/OWM-JSON-helper-1.1-SNAPSHOT-x86.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
     <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
   </path>
   
@@ -218,8 +221,8 @@
     <copy todir="${artifact.temp.output.MyOpenWeather}">
       <fileset dir="${myopenweather.output.dir}"/>
     </copy>
-    <copy file="${basedir}/../../Java/OWM-JSON-helper-1.1-SNAPSHOT.jar" tofile="${artifact.temp.output.MyOpenWeather}/OWM-JSON-helper-1.1-SNAPSHOT.jar"/>
     <copy file="${basedir}/../../Java/gson-2.2.4.jar" tofile="${artifact.temp.output.MyOpenWeather}/gson-2.2.4.jar"/>
+    <copy file="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar" tofile="${artifact.temp.output.MyOpenWeather}/OWM-JSON-helper-2.0.jar"/>
     <fx:fileset id="all_but_MyOpenWeather" dir="${artifact.temp.output.MyOpenWeather}" includes="**/*.jar">
       <exclude name="MyOpenWeather.jar"/>
     </fx:fileset>
@@ -237,7 +240,7 @@
       <fx:application refid="MyOpenWeather_id"/>
       <fx:platform basedir="${java.home}"/>
       <fx:platform basedir="/home/olesia/Java/jdk1.8.0_linux-i586/jre"/>
-      <fx:info title="My Open Weather" vendor="olesia.serban.com" description="It is created for Ubuntu x64
+      <fx:info title="My Open Weather" vendor="olesia.serban.com" description="It is created for Ubuntu-32bit
 App uses info from Open Weather Map"/>
       <fx:resources>
         <fx:fileset refid="all_MyOpenWeather"/>
