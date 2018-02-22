@@ -94,12 +94,15 @@ public class IdEditDialogController {
 
         WeatherParser wp = new WeatherParser();
         try {
-            wp.getCityObject(Long.parseLong(txt));
+            wp.getProtectedCity(Long.parseLong(txt));
         } catch (ConnectException e) {
+            e.printStackTrace();
             errorMessage = "wrong id or lost internet connection ";
         } catch (NullPointerException e) {
+            e.printStackTrace();
             errorMessage = "wrong id or lost internet connection ";
         } catch (Exception e) {
+            e.printStackTrace();
             errorMessage = "wrong id or lost internet connection ";
         }
 

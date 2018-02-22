@@ -174,7 +174,7 @@ public class WeatherSceneController {
         City cityModel = null;
         try {
 
-            cityModel = weatherParser.getCityObject(cityID);
+            cityModel = weatherParser.getProtectedCity(cityID);
 
             this.city = cityModel;
             ArrayList<Condition> conditions = cityModel.getConditionsByDate(time);

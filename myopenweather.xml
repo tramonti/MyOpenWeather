@@ -15,37 +15,30 @@
   <property name="compiler.args" value=""/>
   <property name="compiler.max.memory" value="700m"/>
   <patternset id="ignored.files">
-    <exclude name="**/CVS/**"/>
-    <exclude name="**/SCCS/**"/>
-    <exclude name="**/RCS/**"/>
-    <exclude name="**/rcs/**"/>
-    <exclude name="**/.DS_Store/**"/>
-    <exclude name="**/.svn/**"/>
-    <exclude name="**/.pyc/**"/>
-    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.hprof/**"/>
     <exclude name="**/*.pyc/**"/>
     <exclude name="**/*.pyo/**"/>
-    <exclude name="**/.git/**"/>
-    <exclude name="**/*.hprof/**"/>
-    <exclude name="**/_svn/**"/>
-    <exclude name="**/.hg/**"/>
-    <exclude name="**/*.lib/**"/>
-    <exclude name="**/*~/**"/>
-    <exclude name="**/__pycache__/**"/>
-    <exclude name="**/.bundle/**"/>
     <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
     <exclude name="**/vssver.scc/**"/>
     <exclude name="**/vssver2.scc/**"/>
   </patternset>
   <patternset id="library.patterns">
-    <include name="*.war"/>
-    <include name="*.ear"/>
-    <include name="*.apk"/>
-    <include name="*.zip"/>
-    <include name="*.swc"/>
-    <include name="*.ane"/>
     <include name="*.egg"/>
     <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
   </patternset>
   <patternset id="compiler.resources">
     <exclude name="**/?*.java"/>
@@ -63,33 +56,40 @@
   <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
   <path id="jdk.classpath.1.8">
     <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
       <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
       <include name="jre/lib/management-agent.jar"/>
       <include name="jre/lib/plugin.jar"/>
-      <include name="jre/lib/jsse.jar"/>
-      <include name="jre/lib/deploy.jar"/>
-      <include name="jre/lib/charsets.jar"/>
-      <include name="jre/lib/jce.jar"/>
-      <include name="jre/lib/rt.jar"/>
-      <include name="jre/lib/jfxswt.jar"/>
-      <include name="jre/lib/javaws.jar"/>
       <include name="jre/lib/resources.jar"/>
-      <include name="jre/lib/ext/sunjce_provider.jar"/>
-      <include name="jre/lib/ext/nashorn.jar"/>
-      <include name="jre/lib/ext/sunpkcs11.jar"/>
-      <include name="jre/lib/ext/dnsns.jar"/>
-      <include name="jre/lib/ext/cldrdata.jar"/>
-      <include name="jre/lib/ext/sunec.jar"/>
-      <include name="jre/lib/ext/localedata.jar"/>
-      <include name="jre/lib/ext/jfxrt.jar"/>
-      <include name="jre/lib/ext/zipfs.jar"/>
-      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/rt.jar"/>
     </fileset>
   </path>
   
   <property name="project.jdk.home" value="${jdk.home.1.8}"/>
   <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
   <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.com.google.code.gson:gson:2.2.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"/>
+  </path>
   
   
   <!-- Application Server Libraries -->
@@ -118,7 +118,7 @@
   <property name="module.jdk.bin.myopenweather" value="${project.jdk.bin}"/>
   <property name="module.jdk.classpath.myopenweather" value="${project.jdk.classpath}"/>
   
-  <property name="compiler.args.myopenweather" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  <property name="compiler.args.myopenweather" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
   
   <property name="myopenweather.output.dir" value="${module.myopenweather.basedir}/out/production/MyOpenWeather"/>
   <property name="myopenweather.testoutput.dir" value="${module.myopenweather.basedir}/out/test/MyOpenWeather"/>
@@ -129,28 +129,28 @@
   
   <path id="myopenweather.module.production.classpath">
     <path refid="${module.jdk.classpath.myopenweather}"/>
-    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
-    <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-3.0.jar"/>
+    <path refid="library.com.google.code.gson:gson:2.2.4.classpath"/>
   </path>
   
   <path id="myopenweather.runtime.production.module.classpath">
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
-    <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-3.0.jar"/>
+    <path refid="library.com.google.code.gson:gson:2.2.4.classpath"/>
   </path>
   
   <path id="myopenweather.module.classpath">
     <path refid="${module.jdk.classpath.myopenweather}"/>
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
-    <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-3.0.jar"/>
+    <path refid="library.com.google.code.gson:gson:2.2.4.classpath"/>
   </path>
   
   <path id="myopenweather.runtime.module.classpath">
     <pathelement location="${myopenweather.testoutput.dir}"/>
     <pathelement location="${myopenweather.output.dir}"/>
-    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar"/>
-    <pathelement location="${basedir}/../../Java/gson-2.2.4.jar"/>
+    <pathelement location="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-3.0.jar"/>
+    <path refid="library.com.google.code.gson:gson:2.2.4.classpath"/>
   </path>
   
   
@@ -221,8 +221,9 @@
     <copy todir="${artifact.temp.output.MyOpenWeather}">
       <fileset dir="${myopenweather.output.dir}"/>
     </copy>
-    <copy file="${basedir}/../../Java/gson-2.2.4.jar" tofile="${artifact.temp.output.MyOpenWeather}/gson-2.2.4.jar"/>
-    <copy file="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-2.0.jar" tofile="${artifact.temp.output.MyOpenWeather}/OWM-JSON-helper-2.0.jar"/>
+    <copy file="${basedir}/../OpenWeatherMapHelper/target/OWM-JSON-helper-3.0.jar" tofile="${artifact.temp.output.MyOpenWeather}/OWM-JSON-helper-3.0.jar"/>
+    <copy file="${path.variable.maven_repository}/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" tofile="${artifact.temp.output.MyOpenWeather}/gson-2.2.4.jar"/>
+    <copy file="${path.variable.maven_repository}/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" tofile="${artifact.temp.output.MyOpenWeather}/gson-2.2.4.jar"/>
     <fx:fileset id="all_but_MyOpenWeather" dir="${artifact.temp.output.MyOpenWeather}" includes="**/*.jar">
       <exclude name="MyOpenWeather.jar"/>
     </fx:fileset>
@@ -234,13 +235,14 @@
       <fx:resources>
         <fx:fileset refid="all_but_MyOpenWeather"/>
       </fx:resources>
-      <manifest/>
+      <manifest>
+        <attribute name="Implementation-Title" value="My Open Weather"/>
+        <attribute name="Implementation-Vendor" value="olesia.serban.com"/>
+      </manifest>
     </fx:jar>
     <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.MyOpenWeather}/deploy" outfile="MyOpenWeather" nativeBundles="deb">
       <fx:application refid="MyOpenWeather_id"/>
-      <fx:platform basedir="${java.home}"/>
-      <fx:platform basedir="/home/olesia/Java/jdk1.8.0_linux-i586/jre"/>
-      <fx:info title="My Open Weather" vendor="olesia.serban.com" description="It is created for Ubuntu-32bit
+      <fx:info title="My Open Weather" vendor="olesia.serban.com" description="It is created for Ubuntu x64
 App uses info from Open Weather Map"/>
       <fx:resources>
         <fx:fileset refid="all_MyOpenWeather"/>
