@@ -1,8 +1,8 @@
-package app;
+package com.jess.app;
 
 
-import app.view.IdEditDialogController;
-import app.view.WeatherSceneController;
+import com.jess.app.view.IdEditDialogController;
+import com.jess.app.view.WeatherSceneController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -52,7 +52,8 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
 
 
-            loader.setLocation(MainApp.class.getResource("view/weatherScene.fxml"));
+//            loader.setLocation(MainApp.class.getResource("view/weatherScene.fxml"));
+            loader.setLocation(MainApp.class.getClassLoader().getResource("view/weatherScene.fxml"));
             AnchorPane weatherOverview = (AnchorPane) loader.load();
 
             WeatherSceneController controller = loader.getController();
@@ -69,7 +70,7 @@ public class MainApp extends Application {
     public boolean showIdEditDialog(WeatherSceneController weatherSceneController){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/idChangeLayout.fxml"));
+            loader.setLocation(MainApp.class.getClassLoader().getResource("view/idChangeLayout.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Создаём диалоговое окно Stage.

@@ -1,9 +1,7 @@
-package app.view;
+package com.jess.app.view;
 
-import app.MainApp;
-
-
-import app.util.MyDate;
+import com.jess.app.MainApp;
+import com.jess.app.util.MyDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -317,15 +315,15 @@ public class WeatherSceneController {
         weatherMain.setText("");
         // date.setText("");
         //"http://openweathermap.org/img/w/10d.png"
-        icon.setImage(new Image("resources/images/icon.jpg"));
+        icon.setImage(new Image("images/icon.jpg"));
         icon.setFitWidth(100);
         icon.setFitHeight(80);
 
         // day data default fill
         // icons
-        dayOneIcon.setImage(new Image("resources/images/icon.jpg"));
-        dayTwoIcon.setImage(new Image("resources/images/icon.jpg"));
-        dayThreeIcon.setImage(new Image("resources/images/icon.jpg"));
+        dayOneIcon.setImage(new Image("images/icon.jpg"));
+        dayTwoIcon.setImage(new Image("images/icon.jpg"));
+        dayThreeIcon.setImage(new Image("images/icon.jpg"));
 
         // temperatures
         dayOneTemp.setText("?");

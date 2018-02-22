@@ -1,4 +1,4 @@
-package app.view;
+package com.jess.app.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

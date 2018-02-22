@@ -1,7 +1,7 @@
-package app.test;
+package com.jess.app;
 
-import app.util.MyDate;
 import com.google.gson.Gson;
+import com.jess.app.util.MyDate;
 import util.data.city.City;
 import util.net.FetchURLData;
 import util.net.WeatherParser;
