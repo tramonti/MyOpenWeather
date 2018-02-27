@@ -4,42 +4,35 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-/**
- * Created by olesia on 30.05.16.
- */
 public class MyDate {
     public MyDate() {
     }
 
     public static LocalDateTime getTomorrowNoon() {
+        return getDayNoonAfterToday(1);
+    }
+
+    private static LocalDateTime getTodayNoon() {
         LocalTime afternoon = LocalTime.NOON;
         LocalDate today = LocalDate.now();
-        LocalDateTime todayNoon = LocalDateTime.of(today, afternoon);
-        LocalDateTime tomorrowNoon = todayNoon.plusDays(1);
-        return tomorrowNoon;
+        return LocalDateTime.of(today, afternoon);
+    }
 
+    private static LocalDateTime getDayNoonAfterToday(int days) {
+        return getTodayNoon().plusDays(days);
     }
 
     public static LocalDateTime getDayAfterTomorrowNoon() {
-
-        LocalTime afternoon = LocalTime.NOON;
-        LocalDate today = LocalDate.now();
-        LocalDateTime todayNoon = LocalDateTime.of(today, afternoon);
-        LocalDateTime dayAfterTomorrowNoon = todayNoon.plusDays(2);
-        return dayAfterTomorrowNoon;
+        return getDayNoonAfterToday(2);
     }
 
     public static LocalDateTime getSecondDayAfterTomorrow() {
-        LocalTime afternoon = LocalTime.NOON;
-        LocalDate today = LocalDate.now();
-        LocalDateTime todayNoon = LocalDateTime.of(today, afternoon);
-        LocalDateTime secondDayAfterTomorrowNoon = todayNoon.plusDays(3);
-        return secondDayAfterTomorrowNoon;
+        return getDayNoonAfterToday(3);
     }
 
-    public static String getDayOfWeekString(LocalDateTime ldt){
-        String day = "";
-        switch (ldt.getDayOfWeek()){
+    public static String getDayOfWeekString(LocalDateTime ldt) {
+        String day;
+        switch (ldt.getDayOfWeek()) {
             case MONDAY:
                 day = "Mon";
                 break;
@@ -53,7 +46,7 @@ public class MyDate {
                 day = "Thu";
                 break;
             case FRIDAY:
-                day ="Fri";
+                day = "Fri";
                 break;
             case SATURDAY:
                 day = "Sat";
@@ -62,7 +55,7 @@ public class MyDate {
                 day = "Sun";
                 break;
             default:
-                day ="??";
+                day = "??";
                 break;
         }
         return day;
