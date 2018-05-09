@@ -55,7 +55,7 @@
                   </ImageView>
                   <VBox layoutX="66.0" layoutY="12.0" prefHeight="80.0" prefWidth="116.0" spacing="5.0">
                      <children>
-                        <Label fx:id="curentTemp" prefHeight="52.0" prefWidth="126.0" styleClass="temperature" text="17.96 C" />
+                        <Label fx:id="currentTemp" prefHeight="52.0" prefWidth="126.0" styleClass="temperature" text="17.96 C" />
                         <Label fx:id="weatherMain" styleClass="main" text="Rain" />
                      </children>
                      <padding>
