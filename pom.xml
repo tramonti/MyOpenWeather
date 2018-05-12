@@ -5,8 +5,15 @@
 
     <groupId>com.jess.app</groupId>
     <artifactId>MyOpenWeather</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>OPWHelper</module>
+        <module>UiOpenWeather</module>
+    </modules>
+    <name>MyOpenWeather</name>
+
     <build>
         <plugins>
             <plugin>
@@ -19,7 +26,6 @@
             </plugin>
         </plugins>
     </build>
-    <name>MyOpenWeather</name>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,20 +34,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.serban</groupId>
-            <artifactId>OWM-JSON-helper</artifactId>
-            <version>3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.4</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
 </project>

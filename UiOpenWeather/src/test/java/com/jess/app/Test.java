@@ -1,19 +1,13 @@
 package com.jess.app;
 
-import com.google.gson.Gson;
 import com.jess.app.util.MyDate;
 import util.data.city.City;
-import util.net.FetchURLData;
 import util.net.WeatherParser;
 
 import java.io.*;
-import java.net.ConnectException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Scanner;
 
 /**
  * Created by olesia on 09.05.16.
